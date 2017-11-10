@@ -1,0 +1,14 @@
+//gera binário a partir do UUID
+create function `BINARY_UUID`() RETURNS BINARY(16) DETERMINISTIC RETURN UNHEX (REPLACE(UUID(),'-',''));
+
+
+
+
+PROPOSTA:
+
+//conter o UUID para 32 BYTES
+value = REPLACE(UUID(),'-','') 
+
+
+//recebe um uuid de 32 BYTES como parâmetro e transforma em um binário de 16 bytes
+create function `GENERATE_BINARY_UUID`(value CHAR(32)) RETURNS BINARY(16) RETURN UNHEX (value); //
